@@ -3,5 +3,5 @@ spring:
     name: anime-service
 server:
   servlet:
-    context-path: /
+    context-path: /v1
 
