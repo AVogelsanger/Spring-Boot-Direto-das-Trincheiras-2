@@ -8,18 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("animes")
+@RequestMapping("v1/animes")
 public class AnimeController {
 
     @GetMapping
-    public List<String> animesList() {
-        List<String> database = new ArrayList<>() {{
-            add("Seya");
-            add("Mickey Mouse");
-            add("Shogun");
-            add("Akira");
-            add("Benimaru");
-        }};
-        return database;
+    public List<String> listAll() {
+        return List.of("Kamui","Kaiju 8gou");
     }
 }
