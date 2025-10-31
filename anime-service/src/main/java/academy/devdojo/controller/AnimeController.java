@@ -4,6 +4,7 @@ import academy.devdojo.domain.Anime;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @RestController
 @RequestMapping("v1/animes")
@@ -17,14 +18,18 @@ public class AnimeController {
         return animes.stream().filter(anime -> anime.getName().equalsIgnoreCase(name)).toList();
     }
 
-
     @GetMapping("{id}")
-    public Anime listAll(@PathVariable Long id) {
+    public Anime findById(@PathVariable Long id) {
         return Anime.getAnimes()
                 .stream()
                 .filter(anime -> anime.getId().equals(id))
                 .findFirst().orElse(null);
     }
 
-
+    @PostMapping
+    public Anime save(@RequestBody Anime anime) {
+        anime.setId(ThreadLocalRandom.current().nextLong(100000));
+        Anime.getAnimes().add(anime);
+        return anime;
+    }
 }
