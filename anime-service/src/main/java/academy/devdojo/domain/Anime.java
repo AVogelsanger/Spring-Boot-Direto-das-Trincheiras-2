@@ -1,20 +1,17 @@
 package academy.devdojo.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@AllArgsConstructor
 public class Anime {
 
     private Long id;
     private String name;
-
-    public Anime(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
     public Anime() { }
 
@@ -24,10 +21,5 @@ public class Anime {
         var Zilion = new Anime(3L,"Zilion");
         return List.of(Akira, SaintSeya, Zilion);
     }
-
-
-    // public static List<String> ANIMES = List.of("Akira","Saint Seya", "Zilion");
-
-
 
 }
